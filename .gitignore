@@ -1,0 +1,13 @@
+terraform.tfstate
+# Terraform
+terraform/.terraform/
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/.terraform.lock.hcl
+
+# Packer
+packer/ami_id.txt
+packer_output.txt
+
+# System
+.DS_Store
