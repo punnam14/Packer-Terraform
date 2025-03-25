@@ -49,6 +49,9 @@ Project: AWS Infrastructure with Packer & Terraform
   `sudo systemctl status docker` # Docker should be running  
   `ping google.com`              # Internet access via NAT
 
+  ![Screenshot 2025-03-25 at 1 21 16 PM](https://github.com/user-attachments/assets/cbac494d-8673-424b-ac3d-df1d5a3ce10e)
+
+
 5. Cleanup
 - To destroy all resources:  
   `cd terraform`  
