@@ -41,7 +41,7 @@ Project: AWS Infrastructure with Packer & Terraform
 
 - From the Bastion Host, SSH into a private EC2 instance  
   `ssh ec2-user@<private-ec2-ip>`  
-- Then verify:
+- Then verify:  
   `cat /etc/os-release`          # Should show Amazon Linux 2  
   `docker --version`             # Docker should be installed  
   `sudo systemctl status docker` # Docker should be running  
