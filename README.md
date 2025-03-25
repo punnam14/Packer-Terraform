@@ -29,7 +29,7 @@ Project: AWS Infrastructure with Packer & Terraform
   This will:  
   Build the AMI using Packer  
   Provision infrastructure using Terraform  
-  `./setupscript.sh`
+  `./setupscript.sh`  
   You should get an output like the one shown in the screenshot:  
   ![Screenshot 2025-03-25 at 1 28 18 PM](https://github.com/user-attachments/assets/a38f43a8-d361-4416-baae-1b8145936c3f)
 
