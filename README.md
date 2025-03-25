@@ -17,7 +17,7 @@ Project: AWS Infrastructure with Packer & Terraform
 
 3. Setup Instructions
 - Clone the repository  
-  `git clone <your-repo-url>`  
+  `git clone <repo-url>`  
   `cd Packer-Terraform`  
 - Make setup script executable  
   `chmod +x setupscript.sh`  
