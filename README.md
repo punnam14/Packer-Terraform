@@ -1,21 +1,21 @@
 # Packer-Terraform
 Project: AWS Infrastructure with Packer & Terraform
 
-1. This project sets up:
+## 1. This project sets up:
 
 - A custom Amazon Linux 2 AMI with Docker pre-installed (via Packer)
 - A VPC with one public and one private subnet (via Terraform)
 - A Bastion host in the public subnet
 - 6 EC2 instances in the private subnet (using the custom AMI)
 
-2. Prerequisites
+## 2. Prerequisites
 
 - AWS credentials configured (via aws configure)
 - Packer installed: https://developer.hashicorp.com/packer/install
 - Terraform installed: https://developer.hashicorp.com/terraform/install
 - A valid EC2 Key Pair created in your AWS account
 
-3. Setup Instructions
+## 3. Setup Instructions
 - Clone the repository  
   `git clone <repo-url>`  
   `cd Packer-Terraform`  
@@ -33,7 +33,7 @@ Project: AWS Infrastructure with Packer & Terraform
   You should get an output like the one shown in the screenshot:  
   ![Screenshot 2025-03-25 at 1 28 18 PM](https://github.com/user-attachments/assets/a38f43a8-d361-4416-baae-1b8145936c3f)
 
-4. Verifying the Setup  
+## 4. Verifying the Setup  
 - SSH into the Bastion Host  
   `chmod 400 $SSH_KEY_PATH`  
   `eval $(ssh-agent)`  
@@ -52,14 +52,14 @@ Project: AWS Infrastructure with Packer & Terraform
   ![Screenshot 2025-03-25 at 1 21 16 PM](https://github.com/user-attachments/assets/cbac494d-8673-424b-ac3d-df1d5a3ce10e)
 
 
-5. Cleanup
+## 5. Cleanup
 - To destroy all resources:  
   `cd terraform`  
   `export TF_VAR_my_ip="$(curl -s https://checkip.amazonaws.com)/32"`  
   `export TF_VAR_ssh_keypair_name=$SSH_KEY_NAME`  
   `terraform destroy`  
   
-6. AWS Checks
+## 6. AWS Checks
 
 - AMI Creation
   ![Screenshot 2025-03-25 at 1 24 10 PM](https://github.com/user-attachments/assets/079aed02-041d-4330-87e4-6551eac012d8)
