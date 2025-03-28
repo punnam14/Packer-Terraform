@@ -29,11 +29,28 @@ This project explains the process of setting up AWS Infrastructure with Packer &
 - Run the setup script  
   This will:  
   Build the AMI using Packer  
-  Provision infrastructure using Terraform  
+  Provision infrastructure using Terraform
+  Dynamically generate Ansible inventory file
+  Execute Ansible Playbook  
   `./setupscript.sh`  
-  You should get an output like the one shown in the screenshot:
+  You should get an output like the one shown in the screenshot after the terraform script runs:  
   
   ![Screenshot 2025-03-25 at 1 28 18 PM](https://github.com/user-attachments/assets/a38f43a8-d361-4416-baae-1b8145936c3f)
+
+  You should get an output like the one shown in the screenshot after the Ansible script runs:
+  Upgrades and verifys docker version :
+
+  ![Screenshot 2025-03-28 at 1 58 22 PM](https://github.com/user-attachments/assets/c4d43d33-f208-4949-818f-eadf713d5e92)
+
+  Prints Disk Usage :
+
+  ![Screenshot 2025-03-28 at 1 58 46 PM](https://github.com/user-attachments/assets/69ec358a-6ec4-44e0-9358-e0678f2c3a6a)
+
+  ![Screenshot 2025-03-28 at 1 59 00 PM](https://github.com/user-attachments/assets/e957f43f-179e-424c-ad14-b2a8827aaba6)
+
+  After a sucessfull playbook run your should see this :
+
+  ![Screenshot 2025-03-28 at 1 59 25 PM](https://github.com/user-attachments/assets/bc7fbb17-1ba4-44d3-862b-7115130b009b)
 
 ## 4. Verifying the Setup  
 - SSH into the Bastion Host  
