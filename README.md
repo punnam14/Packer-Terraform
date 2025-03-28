@@ -23,8 +23,8 @@ This project explains the process of setting up AWS Infrastructure with Packer &
   `chmod +x setupscript.sh`  
 - Set environment variables  
   Replace with your actual key name and path (ensure the key pair exists in AWS):  
-  `export SSH_KEY_NAME="<your-key-name>"`  
-  `export SSH_KEY_PATH="<path-to-your-pem-file>"`  
+  `export SSH_KEY_NAME=<your-key-name>`  
+  `export SSH_KEY_PATH=<path-to-your-pem-file>`  
 - Run the setup script  
   This will:  
   Build the AMI using Packer  
