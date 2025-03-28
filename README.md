@@ -38,9 +38,9 @@ This project explains the process of setting up AWS Infrastructure with Packer &
 - Run the setup script  
   This will:  
   Build the AMI using Packer  
-  Provision infrastructure using Terraform
-  Dynamically generate Ansible inventory file
-  Execute Ansible Playbook  
+  Provision infrastructure using Terraform  
+  Dynamically generate Ansible inventory file  
+  Execute Ansible Playbook   
   `./setupscript.sh`  
   You should get an output like the one shown in the screenshot after the terraform script runs:  
   
