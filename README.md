@@ -109,3 +109,10 @@ This project explains the process of setting up AWS Infrastructure with Packer &
 - Private EC2 Instance uses the created AMI  
   
   ![Screenshot 2025-03-25 at 1 20 48 PM](https://github.com/user-attachments/assets/57a5aa61-b704-4368-93a1-390acab288ad)
+
+## 8. Resources
+
+- https://labex.io/questions/how-to-use-ansible-apt-module-to-update-packages-289651
+- https://stackoverflow.com/questions/41535838/how-to-run-apt-update-and-upgrade-via-ansible-shell
+- https://solutionamardba.medium.com/ansible-playbook-to-check-disk-space-for-windows-linux-part-iii-fe4584b0c4d5
+- https://stackoverflow.com/questions/37922158/how-to-install-or-upgrade-in-ansible-all-packages-in-a-yum-repository
