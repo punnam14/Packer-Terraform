@@ -1,5 +1,5 @@
-# Packer-Terraform
-This project explains the process of setting up AWS Infrastructure with Packer & Terraform
+# Packer-Terraform-Ansible
+This project explains the process of setting up AWS Infrastructure with Packer & Terraform and then uses Ansible to upgrage packages and report disc usage in the EC2 instances created
 
 ## 1. This project sets up:
 
