@@ -26,12 +26,18 @@ packer build \
   -var "ssh_private_key_file=${SSH_KEY_PATH}" \
   ami.pkr.hcl | tee packer_output.txt
 
-# Extract AMI ID from Packer output and save to ami_id.txt
-AMI_ID=$(grep 'us-east-1:' packer_output.txt | awk '{print $2}')
-echo $AMI_ID > ami_id.txt
+# Extract AMI ID
+AMAZON_AMI_ID=$(grep 'amazon-ebs.docker_ami: AMIs were created:' packer_output.txt -A1 | grep 'us-east-1:' | awk '{print $2}')
+UBUNTU_AMI_ID=$(grep 'amazon-ebs.ubuntu_docker_ami: AMIs were created:' packer_output.txt -A1 | grep 'us-east-1:' | awk '{print $2}')
+
+# Save to file
+echo "amazon-linux ${AMAZON_AMI_ID}" > ami_id.txt
+echo "ubuntu-docker ${UBUNTU_AMI_ID}" >> ami_id.txt
+
 rm packer_output.txt
 
-echo "✅ AMI created with ID: $AMI_ID"
+echo "✅ Amazon Linux AMI ID: ${AMAZON_AMI_ID}"
+echo "✅ Ubuntu AMI ID: ${UBUNTU_AMI_ID}"
 
 # Navigate to Terraform directory
 cd ../terraform

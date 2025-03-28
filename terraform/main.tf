@@ -11,9 +11,14 @@ provider "aws" {
   region = var.aws_region
 }
 
-data "external" "ami" {
-  program = ["bash", "-c", "echo '{\"ami_id\":\"'$(cat ../packer/ami_id.txt)'\"}'"]
+data "external" "amazon_ami" {
+  program = ["bash", "-c", "echo '{\"ami_id\":\"'$(grep 'amazon-linux' ../packer/ami_id.txt | awk '{print $2}')'\"}'"]
 }
+
+data "external" "ubuntu_ami" {
+  program = ["bash", "-c", "echo '{\"ami_id\":\"'$(grep 'ubuntu-docker' ../packer/ami_id.txt | awk '{print $2}')'\"}'"]
+}
+
 
 # Create VPC
 resource "aws_vpc" "main_vpc" {
@@ -107,7 +112,7 @@ resource "aws_security_group" "bastion_sg" {
 
 # Bastion Host
 resource "aws_instance" "bastion" {
-  ami                    = data.external.ami.result.ami_id
+  ami                    = data.external.amazon_ami.result.ami_id
   instance_type          = "t2.micro"
   subnet_id              = aws_subnet.public_subnet.id
   vpc_security_group_ids = [aws_security_group.bastion_sg.id]
@@ -136,11 +141,27 @@ resource "aws_security_group" "private_ec2_sg" {
 }
 
 # Private EC2 Instances
-resource "aws_instance" "private_instances" {
-  count                  = 6
-  ami                    = data.external.ami.result.ami_id
+resource "aws_instance" "amazon_instances" {
+  count                  = 3
+  ami                    = data.external.amazon_ami.result.ami_id
   instance_type          = "t2.micro"
   subnet_id              = aws_subnet.private_subnet.id
   vpc_security_group_ids = [aws_security_group.private_ec2_sg.id]
   key_name               = var.ssh_keypair_name
+  tags = {
+    OS = "amazon"
+  }
 }
+
+resource "aws_instance" "ubuntu_instances" {
+  count                  = 3
+  ami                    = data.external.ubuntu_ami.result.ami_id
+  instance_type          = "t2.micro"
+  subnet_id              = aws_subnet.private_subnet.id
+  vpc_security_group_ids = [aws_security_group.private_ec2_sg.id]
+  key_name               = var.ssh_keypair_name
+  tags = {
+    OS = "ubuntu"
+  }
+}
+ 

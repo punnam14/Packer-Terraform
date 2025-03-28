@@ -25,6 +25,8 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
+### --- Amazon Linux Source ---
+
 source "amazon-ebs" "docker_ami" {
   region = var.aws_region
 
@@ -56,6 +58,43 @@ build {
       "sudo systemctl start docker",
       "sudo systemctl enable docker",
       "sudo usermod -aG docker ec2-user"
+    ]
+  }
+}
+
+### --- Ubuntu Source ---
+
+source "amazon-ebs" "ubuntu_docker_ami" {
+  region = var.aws_region
+
+  source_ami_filter {
+    filters = {
+      name                = "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"
+      virtualization-type = "hvm"
+      root-device-type    = "ebs"
+    }
+    owners      = ["099720109477"] # Canonical
+    most_recent = true
+  }
+
+  instance_type        = var.instance_type
+  ssh_username         = "ubuntu"
+  ami_name             = "ubuntu-docker-${formatdate("YYYYMMDDhhmmss", timestamp())}"
+  ami_description      = "Ubuntu 20.04 with Docker pre-installed"
+  ssh_keypair_name     = var.ssh_keypair_name
+  ssh_private_key_file = var.ssh_private_key_file
+}
+
+build {
+  sources = ["source.amazon-ebs.ubuntu_docker_ami"]
+
+  provisioner "shell" {
+    inline = [
+      "sudo apt update -y",
+      "sudo apt install -y docker.io",
+      "sudo systemctl start docker",
+      "sudo systemctl enable docker",
+      "sudo usermod -aG docker ubuntu"
     ]
   }
 }
