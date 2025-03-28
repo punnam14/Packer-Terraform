@@ -16,7 +16,16 @@ This project explains the process of setting up AWS Infrastructure with Packer &
 - Terraform installed: https://developer.hashicorp.com/terraform/install
 - A valid EC2 Key Pair created in your AWS account
 
-## 3. Setup Instructions
+## 3. Explanation of the main setup script - setupscript.sh  
+
+- Validates environment variables: Ensures that SSH_KEY_NAME and SSH_KEY_PATH are set before proceeding.
+- Builds two custom AMIs using Packer: Amazon Linux 2 AMI with Docker pre-installed and Ubuntu 20.04 AMI with Docker pre-installed.
+- Captures AMI IDs dynamically from Packer build logs and saves them temporarily.
+- Provisions AWS Infrastructure using the Terraform script.
+- Deletes temporary AMI ID file after Terraform apply.
+- Triggers Ansible Playbook execution automatically by calling ./run-ansible.sh  
+
+## 4. Setup Instructions
 - Clone the repository  
   `git clone <repo-url>`  
   `cd Packer-Terraform`  
@@ -52,7 +61,7 @@ This project explains the process of setting up AWS Infrastructure with Packer &
 
   ![Screenshot 2025-03-28 at 1 59 25 PM](https://github.com/user-attachments/assets/bc7fbb17-1ba4-44d3-862b-7115130b009b)
 
-## 4. Verifying the Setup  
+## 5. Verifying the Setup  
 - SSH into the Bastion Host  
   `chmod 400 $SSH_KEY_PATH`  
   `eval $(ssh-agent)`  
@@ -71,14 +80,14 @@ This project explains the process of setting up AWS Infrastructure with Packer &
   ![Screenshot 2025-03-25 at 1 21 16 PM](https://github.com/user-attachments/assets/cbac494d-8673-424b-ac3d-df1d5a3ce10e)
 
 
-## 5. Cleanup
+## 6. Cleanup
 - To destroy all resources:  
   `cd terraform`  
   `export TF_VAR_my_ip="$(curl -s https://checkip.amazonaws.com)/32"`  
   `export TF_VAR_ssh_keypair_name=$SSH_KEY_NAME`  
   `terraform destroy`  
   
-## 6. AWS Checks
+## 7. AWS Checks
 
 - AMI Creation  
   
