@@ -23,7 +23,7 @@ This project explains the process of setting up AWS Infrastructure with Packer &
 - Captures AMI IDs dynamically from Packer build logs and saves them temporarily.
 - Provisions AWS Infrastructure using the Terraform script.
 - Deletes temporary AMI ID file after Terraform apply.
-- Triggers Ansible Playbook execution automatically by calling ./run-ansible.sh  
+- Triggers Ansible Playbook execution automatically by calling ./run-ansible.sh.
 
 ## 4. Setup Instructions
 - Clone the repository  
