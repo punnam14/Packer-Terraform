@@ -57,7 +57,7 @@ This project explains the process of setting up AWS Infrastructure with Packer &
 
   ![Screenshot 2025-03-28 at 1 59 00 PM](https://github.com/user-attachments/assets/e957f43f-179e-424c-ad14-b2a8827aaba6)
 
-  After a sucessfull playbook run your should see this :
+  After a successful playbook run your should see this :
 
   ![Screenshot 2025-03-28 at 1 59 25 PM](https://github.com/user-attachments/assets/bc7fbb17-1ba4-44d3-862b-7115130b009b)
 
