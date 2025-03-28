@@ -52,3 +52,8 @@ terraform apply -auto-approve
 rm ../packer/ami_id.txt
 
 echo "✅ Terraform setup complete!"
+
+# Run Ansible script
+echo "🚀 Starting Ansible Playbook Execution..."
+chmod +x run-ansible.sh
+./run-ansible.sh
