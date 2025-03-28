@@ -37,7 +37,7 @@ This project explains the process of setting up AWS Infrastructure with Packer &
   
   ![Screenshot 2025-03-25 at 1 28 18 PM](https://github.com/user-attachments/assets/a38f43a8-d361-4416-baae-1b8145936c3f)
 
-  You should get an output like the one shown in the screenshot after the Ansible script runs:
+  You should get an output like the one shown in the screenshot after the Ansible script runs:  
   Upgrades and verifys docker version :
 
   ![Screenshot 2025-03-28 at 1 58 22 PM](https://github.com/user-attachments/assets/c4d43d33-f208-4949-818f-eadf713d5e92)
