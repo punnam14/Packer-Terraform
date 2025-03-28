@@ -3,10 +3,11 @@ This project explains the process of setting up AWS Infrastructure with Packer &
 
 ## 1. This project sets up:
 
-- A custom Amazon Linux 2 AMI with Docker pre-installed (via Packer)
+- A custom Amazon Linux 2 AMI (Ubuntu 20.04) AMI with Docker pre-installed (via Packer)
 - A VPC with one public and one private subnet (via Terraform)
 - A Bastion host in the public subnet
-- 6 EC2 instances in the private subnet (using the custom AMI)
+- 6 EC2 instances in the private subnet (using the custom AMIs - 3 Amazon Linux, 3 Ubuntu)
+- An ansible playbook that runs after the terraform script to update packages and and print disk usage
 
 ## 2. Prerequisites
 
