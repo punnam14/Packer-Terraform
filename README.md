@@ -22,7 +22,7 @@ This project explains the process of setting up AWS Infrastructure with Packer &
 - Make setup script executable  
   `chmod +x setupscript.sh`  
 - Set environment variables  
-  Replace with your actual key name and path (ensure the key pair exists in AWS):  
+  Replace with your actual key name and path ( ensure the key pair exists in AWS - this is the first export example : packer-terraform, the second one is the path in your local folder example : /Users/1998p1/Downloads/packer-terraform.pem):  
   `export SSH_KEY_NAME=<your-key-name>`  
   `export SSH_KEY_PATH=<path-to-your-pem-file>`  
 - Run the setup script  
