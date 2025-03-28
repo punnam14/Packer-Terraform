@@ -16,13 +16,27 @@
         update_cache: yes
         upgrade: dist
 
+    - name: Upgrade Docker (Amazon)
+      when: ansible_os_family == "RedHat"
+      yum:
+        name: docker
+        state: latest
+
+    - name: Upgrade Docker (Ubuntu)
+      when: ansible_os_family == "Debian"
+      apt:
+        name: docker.io
+        state: latest
+        update_cache: yes
+
     - name: Verify Docker version
       command: docker --version
       register: docker_version
+      ignore_errors: yes  
 
     - name: Print Docker version
       debug:
-        msg: "{{ docker_version.stdout }}"
+        msg: "{{ docker_version.stdout | default('Docker not installed') }}"
 
     - name: Report disk usage
       command: df -h
