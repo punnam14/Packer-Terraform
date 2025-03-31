@@ -28,7 +28,8 @@ This project explains the process of setting up AWS Infrastructure with Packer &
 ## 4. Setup Instructions
 - Clone the repository  
   `git clone <repo-url>`  
-  `cd Packer-Terraform`  
+  `cd Packer-Terraform`
+  `git checkout ansible`
 - Make setup script executable  
   `chmod +x setupscript.sh`  
 - Set environment variables  
